@@ -1,44 +1,65 @@
 #include "push_swap.h"
 
-void	set_index(t_stack **a, const long int *array, int argc)
+int	check_dups(t_stack *a)
 {
 	int		i;
+	int		j;
 	t_stack	*tmp;
+	t_stack	*head;
 
-	tmp = *a;
-	while (tmp != NULL)
+	i = 0;
+	head = a;
+	while (a)
 	{
-		i = 0;
-		while (i < argc)
+		j = 0;
+		tmp = head;
+		while (tmp)
 		{
-			if (array[i] == tmp->number)
-			{
-				tmp->index = i;
-				break ;
-			}
-			i++;
+			if (tmp->number == a->number && i != j)
+				return (0);
+			tmp = tmp->next;
+			j++;
 		}
-		tmp = tmp->next;
-	}
-}
-
-void	set_stack(t_stack **a, char **argv, int argc)
-{
-	int		i;
-
-	i = 1;
-	while (i < argc)
-	{
-		ft_lstadd_back(a, new_elem((int) ft_atoi(argv[i])));
 		i++;
-	}
-}
-
-void	out_stack(t_stack *a)
-{
-	while (a != NULL)
-	{
-		printf("%d %d\n", a->number, a->index);
 		a = a->next;
 	}
+	return (1);
+}
+
+void	set_stack(t_stack **a, char **argv)
+{
+	int			i;
+	long int	data;
+	t_stack		*tmp;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (!ft_number(argv[i]))
+			exit_f(0);
+		data = ft_atoi(argv[i]);
+		if (data > INT_MAX || data < INT_MIN)
+			exit_f(0);
+		tmp = ft_new_elem((int)data);
+		if (!tmp)
+			exit_f(0);
+		ft_stack_back(a, tmp);
+		i++;
+	}
+	if (!check_dups(*a))
+		exit_f(0);
+}
+
+int	is_sorted(t_stack *a)
+{
+	t_stack	*tmp;
+
+	tmp = a;
+	while (tmp->next != NULL)
+	{
+		if (tmp->number > tmp->next->number)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }
