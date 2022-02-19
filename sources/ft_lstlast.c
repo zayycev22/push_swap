@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 15:29:11 by                   #+#    #+#             */
-/*   Updated: 2021/10/17 15:29:11 by                  ###   ########.fr       */
+/*   Created: 2021/10/17 15:30:20 by                   #+#    #+#             */
+/*   Updated: 2021/10/17 15:30:20 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../push_swap.h"
 
-#include "push_swap.h"
-
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+t_stack	*ft_lstlast(t_stack *lst)
 {
-	t_stack	*tmp;
-
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	tmp = ft_lstlast(*lst);
-	tmp->next = new;
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
