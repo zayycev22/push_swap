@@ -6,28 +6,29 @@
 # define PUSH_SWAP_H
 # include <stdio.h>
 # include <stdlib.h>
-# include "libft/libft.h"
+# include <unistd.h>
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
-typedef struct s_stack_elem
+typedef struct s_list
 {
-	int					number;
-	size_t				index;
-	struct s_stack_elem	*next;
-}						t_stack;
+	int				data;
+	int				index;
+	struct s_list	*next;
+}	t_list;
 
-t_stack		*ft_new_elem(int data);
-//void		out_stack(t_stack *a);
-void		set_stack(t_stack **a, char **argv);
-t_stack		*ft_lstlast(t_stack *lst);
-void		ft_stack_back(t_stack **lst, t_stack *new);
-void		exit_f(int status);
-int			is_sorted(t_stack *a);
-int			ft_number(char *str);
-void		ft_del_last(t_stack **a);
-int			ft_stack_size(t_stack *lst);
-void		ft_stack_add_front(t_stack **stack, t_stack *new);
-void		reverse_rotate(t_stack **a, int flag, char *message);
-void		sort_small(t_stack **a);
+long int	ft_atoi(const char *str);
+int			check_dups(int argc, char **argv);
+t_list		*create_elem(long int a);
+void		push_back(t_list **list, long int a);
+void		pa_pb(t_list **list_a, t_list **list_b, char c);
+void		ft_bubble_array(int *array, int argc);
+void		check_sort(t_list *a);
+void		sa_sb_ss(t_list **list_a, t_list **list_b, char c);
+void		rra_rrb_rrr(t_list **list_a, t_list **list_b, char c);
+void		ra_rb_rr(t_list **list_a, t_list **list_b, char c);
+int			count_n(t_list *list);
+int			ft_get_max(t_list *stack, int diap);
+void		large(t_list **a, t_list **b, int argc);
+void		big(t_list **a, t_list **b, int argc);
 #endif
