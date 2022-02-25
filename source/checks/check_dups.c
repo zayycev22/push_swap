@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_dups.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: larobbie <larobbie@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/25 19:36:35 by larobbie          #+#    #+#             */
+/*   Updated: 2022/02/25 19:43:55 by larobbie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
-int	check_dups(int argc, char **argv)
+void	check_dups(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -13,9 +25,11 @@ int	check_dups(int argc, char **argv)
 		{
 			if (ft_atoi(argv[j]) == ft_atoi(argv[i]))
 			{
-				write("Error\n", 6);
+				write(0, "Error\n", 6);
 				exit(EXIT_SUCCESS);
 			}
+			j++;
 		}
+		i++;
 	}
 }

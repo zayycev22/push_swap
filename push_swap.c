@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: larobbie <larobbie@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/25 19:36:12 by larobbie          #+#    #+#             */
+/*   Updated: 2022/02/25 19:36:14 by larobbie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	ft_get_indexs(t_list **a, const int *arr, int argc)
 {
@@ -51,4 +62,6 @@ int	main(int argc, char **argv)
 	check_sort(a);
 	ft_bubble_array(tmp_arr, argc);
 	ft_get_indexs(&a, tmp_arr, argc);
+	sort(&a, &b, argc - 1);
+	exit(0);
 }

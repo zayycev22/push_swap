@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: larobbie <larobbie@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/25 19:45:00 by larobbie          #+#    #+#             */
+/*   Updated: 2022/02/25 19:45:00 by larobbie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static int	ft_isdigit(int c)
@@ -64,7 +76,7 @@ long int	ft_atoi(const char *str)
 	{
 		res = res * 10 + str[j] - '0';
 		j++;
-		if (res * n > INT_MAX|| res * n < INT_MIN)
+		if (res * n > INT_MAX || res * n < INT_MIN)
 		{
 			write(2, "Error\n", 6);
 			exit(1);

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_sorting.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: larobbie <larobbie@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/25 19:36:56 by larobbie          #+#    #+#             */
+/*   Updated: 2022/02/25 19:36:57 by larobbie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 static void	small(t_list **t1, t_list **t2);
 
 static void	medium(t_list **t1, t_list **t2, int argc);
 
-void	sort(t_list **a, t_list **b, int *argc, int c_elements)
+void	sort(t_list **a, t_list **b, int c_elements)
 {
 	if (c_elements == 2)
 	{
@@ -15,11 +27,11 @@ void	sort(t_list **a, t_list **b, int *argc, int c_elements)
 		small(a, b);
 	}
 	else if (c_elements <= 5)
-		medium(a, b, argc);
+		medium(a, b, c_elements + 1);
 	else if (c_elements >= 6 && c_elements <= 100)
-		big(a, b, argc);
+		big(a, b, c_elements + 1);
 	else
-		large(a, b, argc);
+		large(a, b, c_elements + 1);
 }
 
 static void	small(t_list **t1, t_list **t2)
@@ -87,5 +99,5 @@ static void	medium(t_list **t1, t_list **t2, int argc)
 			ra_rb_rr(t1, t2, 'a');
 		}
 	}
-	five_finish(t1, t2);
+	medium_finish(t1, t2);
 }

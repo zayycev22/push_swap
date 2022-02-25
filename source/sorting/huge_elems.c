@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   huge_elems.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: larobbie <larobbie@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/25 19:36:54 by larobbie          #+#    #+#             */
+/*   Updated: 2022/02/25 19:36:54 by larobbie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../push_swap.h"
 
 static void	sort_b(t_list **a, t_list **b, int argc)
@@ -10,7 +22,7 @@ static void	sort_b(t_list **a, t_list **b, int argc)
 	while (*b)
 	{
 		half = (max_i + 1) / 2;
-		place = ft_get_max(b, max_i);
+		place = ft_get_max_i(b, max_i);
 		if ((*b)->index == max_i)
 		{
 			pa_pb(a, b, 'a');
